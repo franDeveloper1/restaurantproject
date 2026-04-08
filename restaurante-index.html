@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Orilla — Restaurante & Café · Corrientes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Jost:wght@200;300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="restaurante-style.css">
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">
+      <span class="logo-main">La Orilla</span>
+      <span class="logo-sub">Restaurante &amp; Café</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#menu">Menú</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#horarios">Horarios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="#reservas" class="nav-reserva">Reservar mesa</a>
+    <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Menú mobile -->
+  <div class="mobile-nav" id="mobileNav">
+    <button class="mobile-close" id="mobileClose" aria-label="Cerrar">✕</button>
+    <a href="#nosotros" onclick="closeMobile()">Nosotros</a>
+    <a href="#menu"     onclick="closeMobile()">Menú</a>
+    <a href="#galeria"  onclick="closeMobile()">Galería</a>
+    <a href="#horarios" onclick="closeMobile()">Horarios</a>
+    <a href="#contacto" onclick="closeMobile()">Contacto</a>
+    <a href="#reservas" onclick="closeMobile()" class="mobile-reserva">Reservar mesa</a>
+  </div>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="inicio">
+    <!-- Video de fondo -->
+    <video class="hero-video" autoplay muted loop playsinline
+      poster="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600">
+      <source src="https://videos.pexels.com/video-files/3209828/3209828-uhd_2560_1440_25fps.mp4" type="video/mp4">
+      <source src="https://videos.pexels.com/video-files/2884204/2884204-hd_1920_1080_24fps.mp4" type="video/mp4">
+      <source src="https://videos.pexels.com/video-files/1437467/1437467-hd_1920_1080_30fps.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+
+    <!-- Ornamento botánico SVG -->
+    <svg class="hero-leaf" viewBox="0 0 200 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M100 290 C100 290 20 200 20 120 C20 60 60 20 100 10 C140 20 180 60 180 120 C180 200 100 290 100 290Z" fill="currentColor" opacity="0.07"/>
+      <line x1="100" y1="10" x2="100" y2="290" stroke="currentColor" stroke-width="1" opacity="0.15"/>
+      <path d="M100 80 C100 80 60 100 40 140" stroke="currentColor" stroke-width="0.8" opacity="0.12"/>
+      <path d="M100 80 C100 80 140 100 160 140" stroke="currentColor" stroke-width="0.8" opacity="0.12"/>
+      <path d="M100 140 C100 140 50 155 30 190" stroke="currentColor" stroke-width="0.8" opacity="0.12"/>
+      <path d="M100 140 C100 140 150 155 170 190" stroke="currentColor" stroke-width="0.8" opacity="0.12"/>
+    </svg>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Corrientes, Argentina</p>
+      <h1 class="hero-title">
+        Sabor,<br>
+        <em>silencio</em><br>
+        y río.
+      </h1>
+      <p class="hero-desc">Cocina de autor con raíces correntinas. Cada plato, una historia. Cada visita, un recuerdo.</p>
+      <div class="hero-actions">
+        <a href="#menu" class="btn btn-light">Ver el menú</a>
+        <a href="#reservas" class="btn btn-outline-light">Reservar mesa</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <div class="scroll-line"></div>
+      <span>Deslizá</span>
+    </div>
+
+    <!-- Franja inferior con dato -->
+    <div class="hero-ribbon">
+      <span>Abierto todos los días</span>
+      <span class="ribbon-dot">·</span>
+      <span>12:00 — 00:00 hs</span>
+      <span class="ribbon-dot">·</span>
+      <span>San Juan 1452, Corrientes</span>
+    </div>
+  </section>
+
+  <!-- ===================== MARQUEE ===================== -->
+  <div class="marquee-wrap">
+    <div class="marquee-inner">
+      <span class="mq">Desayuno</span><span class="mq-dot">✦</span>
+      <span class="mq">Almuerzo</span><span class="mq-dot">✦</span>
+      <span class="mq">Merienda</span><span class="mq-dot">✦</span>
+      <span class="mq">Cena</span><span class="mq-dot">✦</span>
+      <span class="mq">Brunch</span><span class="mq-dot">✦</span>
+      <span class="mq">Café de especialidad</span><span class="mq-dot">✦</span>
+      <span class="mq">Cocina regional</span><span class="mq-dot">✦</span>
+      <span class="mq">Vinos</span><span class="mq-dot">✦</span>
+      <!-- duplicado loop -->
+      <span class="mq">Desayuno</span><span class="mq-dot">✦</span>
+      <span class="mq">Almuerzo</span><span class="mq-dot">✦</span>
+      <span class="mq">Merienda</span><span class="mq-dot">✦</span>
+      <span class="mq">Cena</span><span class="mq-dot">✦</span>
+      <span class="mq">Brunch</span><span class="mq-dot">✦</span>
+      <span class="mq">Café de especialidad</span><span class="mq-dot">✦</span>
+      <span class="mq">Cocina regional</span><span class="mq-dot">✦</span>
+      <span class="mq">Vinos</span><span class="mq-dot">✦</span>
+    </div>
+  </div>
+
+  <!-- ===================== NOSOTROS ===================== -->
+  <section id="nosotros" class="section section-cream">
+    <div class="container">
+      <div class="about-grid">
+
+        <div class="about-images reveal-left">
+          <div class="about-img-main">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800" alt="Interior del restaurante">
+          </div>
+          <div class="about-img-float">
+            <img src="https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=500" alt="Café de especialidad">
+          </div>
+          <div class="about-year">
+            <span class="year-num">2018</span>
+            <span class="year-lbl">Desde</span>
+          </div>
+        </div>
+
+        <div class="about-text reveal-right">
+          <div class="eyebrow">— Nuestra historia —</div>
+          <h2 class="heading">Un rincón<br><em>correntino</em><br>para el alma</h2>
+          <p>La Orilla nació en 2018 a metros del Paraná, con la idea de celebrar los sabores del litoral argentino. Usamos ingredientes locales, técnica de autor y mucho corazón.</p>
+          <p>No somos solo un restaurante. Somos el lugar donde se toma la primera reunión del día, el almuerzo familiar del domingo y la cena que se recuerda por años.</p>
+          <div class="about-divider"></div>
+          <div class="about-values">
+            <div class="value">
+              <span class="value-icon">🌿</span>
+              <span class="value-txt">Ingredientes locales</span>
+            </div>
+            <div class="value">
+              <span class="value-icon">☕</span>
+              <span class="value-txt">Café de especialidad</span>
+            </div>
+            <div class="value">
+              <span class="value-icon">🍷</span>
+              <span class="value-txt">Carta de vinos curada</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CIFRAS ===================== -->
+  <section class="stats-bar reveal">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-num">6+</span>
+          <span class="stat-lbl">Años en la ciudad</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat-item">
+          <span class="stat-num">40+</span>
+          <span class="stat-lbl">Platos en carta</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat-item">
+          <span class="stat-num">100%</span>
+          <span class="stat-lbl">Ingredientes regionales</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat-item">
+          <span class="stat-num">5★</span>
+          <span class="stat-lbl">Reseñas en Google</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== MENÚ ===================== -->
+  <section id="menu" class="section section-dark">
+    <div class="container">
+
+      <div class="section-header">
+        <div class="reveal-left">
+          <div class="eyebrow eyebrow-light">— Lo que ofrecemos —</div>
+          <h2 class="heading heading-light">Nuestra<br><em>Carta</em></h2>
+        </div>
+        <p class="section-intro reveal-right">Una selección cuidada de platos que combinan la tradición correntina con técnicas contemporáneas.</p>
+      </div>
+
+      <div class="menu-tabs reveal" id="menuTabs">
+        <button class="tab active" data-tab="desayuno">Desayuno</button>
+        <button class="tab" data-tab="almuerzo">Almuerzo</button>
+        <button class="tab" data-tab="cena">Cena</button>
+        <button class="tab" data-tab="cafeteria">Cafetería</button>
+      </div>
+
+      <!-- Desayuno -->
+      <div class="menu-panel active" id="tab-desayuno">
+        <div class="menu-grid">
+          <div class="menu-card stagger">
+            <div class="menu-card-img"><img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=500" alt="Tostadas"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-head">
+                <h3>Tostadas de la Orilla</h3>
+                <span class="price">$2.800</span>
+              </div>
+              <p>Pan de campo artesanal, palta, tomate cherry y aceite de oliva virgen.</p>
+              <span class="tag">Vegano</span>
+            </div>
+          </div>
+          <div class="menu-card stagger">
+            <div class="menu-card-img"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=500" alt="Bowl"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-head">
+                <h3>Bowl del Litoral</h3>
+                <span class="price">$3.200</span>
+              </div>
+              <p>Granola casera, yogur natural, frutas de temporada y miel del norte correntino.</p>
+              <span class="tag">Sin TACC</span>
+            </div>
+          </div>
+          <div class="menu-card stagger">
+            <div class="menu-card-img"><img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=500" alt="Medialunas"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-head">
+                <h3>Desayuno Completo</h3>
+                <span class="price">$4.500</span>
+              </div>
+              <p>Café con leche, medialunas de manteca, jugo natural y tostadas con dulce casero.</p>
+            </div>
+          </div>
+          <div class="menu-card stagger">
+            <div class="menu-card-img"><img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=500" alt="Huevos"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-head">
+                <h3>Huevos Benedictinos</h3>
+                <span class="price">$3.900</span>
+              </div>
+              <p>Huevos poché, jamón serrano, salsa holandesa y pan brioche tostado.</p>
+              <span class="tag tag-chef">Chef's pick</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Almuerzo -->
+      <div class="menu-panel" id="tab-almuerzo">
+        <div class="menu-grid">
+          <div class="menu-card stagger">
+            <div class="menu-card-img"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=500" alt="Surubí"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-head">
+                <h3>Surubí al Rescoldo</h3>
+                <span class="price">$8.500</span>
+              </div>
+              <p>Filete de surubí del Paraná, vegetales de estación y salsa criolla de la casa.</p>
+              <span class="tag tag-chef">Especialidad</span>
+            </div>
+          </div>
+          <div class="menu-card stagger">
+            <div class="menu-card-img"><img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=500" alt="Pasta"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-head">
+                <h3>Tallarines del Norte</h3>
+                <span class="price">$6.200</span>
+              </div>
+              <p>Pasta fresca artesanal, ragu de carpincho, queso cuyano rallado y albahaca.</p>
+            </div>
+          </div>
+          <div class="menu-card stagger">
+            <div class="menu-card-img"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500" alt="Ensalada"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-head">
+                <h3>Ensalada Paraná</h3>
+                <span class="price">$4.800</span>
+              </div>
+              <p>Verdes del huerto, palmito, mandioca crocante y aderezo de limón y hierbas.</p>
+              <span class="tag">Vegano</span>
+            </div>
+          </div>
+          <div class="menu-card stagger">
+            <div class="menu-card-img"><img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=500" alt="Asado"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-head">
+                <h3>Costillar del Iberá</h3>
+                <span class="price">$9.800</span>
+              </div>
+              <p>Costillar de cerdo cocinado 8 horas, papas rústicas y chimichurri de la casa.</p>
+              <span class="tag tag-chef">Chef's pick</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cena -->
+      <div class="menu-panel" id="tab-cena">
+        <div class="menu-grid">
+          <div class="menu-card stagger">
+            <div class="menu-card-img"><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=500" alt="Tabla"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-head">
+                <h3>Tabla del Litoral</h3>
+                <span class="price">$11.000</span>
+              </div>
+              <p>Embutidos regionales, quesos artesanales, encurtidos y pan de campo.</p>
+            </div>
+          </div>
+          <div class="menu-card stagger">
+            <div class="menu-card-img"><img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=500" alt="Risotto"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-head">
+                <h3>Risotto del Paraná</h3>
+                <span class="price">$7.400</span>
+              </div>
+              <p>Arroz arborio, langostinos del río, azafrán y parmesano DOP.</p>
+              <span class="tag tag-chef">Especialidad</span>
+            </div>
+          </div>
+          <div class="menu-card stagger">
+            <div class="menu-card-img"><img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=500" alt="Postre"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-head">
+                <h3>Volcán de Chocolate</h3>
+                <span class="price">$3.600</span>
+              </div>
+              <p>Coulant de chocolate 70%, crema de dulce de leche y helado artesanal.</p>
+            </div>
+          </div>
+          <div class="menu-card stagger">
+            <div class="menu-card-img"><img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=500" alt="Cóctel"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-head">
+                <h3>Tragos de Autor</h3>
+                <span class="price">desde $3.200</span>
+              </div>
+              <p>Cócteles creados con ingredientes del litoral: yerba, mandioca, frutos del río.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cafetería -->
+      <div class="menu-panel" id="tab-cafeteria">
+        <div class="menu-grid">
+          <div class="menu-card stagger">
+            <div class="menu-card-img"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500" alt="Espresso"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-head">
+                <h3>Espresso de Autor</h3>
+                <span class="price">$1.200</span>
+              </div>
+              <p>Blend de origen único, preparado en máquina La Marzocco. Notas de frutos rojos y cacao.</p>
+            </div>
+          </div>
+          <div class="menu-card stagger">
+            <div class="menu-card-img"><img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=500" alt="Latte"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-head">
+                <h3>Latte Art</h3>
+                <span class="price">$1.800</span>
+              </div>
+              <p>Espresso doble con leche vaporizada artesanalmente. Opciones oat, almendra o coco.</p>
+            </div>
+          </div>
+          <div class="menu-card stagger">
+            <div class="menu-card-img"><img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=500" alt="Matcha"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-head">
+                <h3>Matcha Latte</h3>
+                <span class="price">$2.100</span>
+              </div>
+              <p>Matcha ceremonial japonés, leche de avena y sirope de agave.</p>
+              <span class="tag">Vegano</span>
+            </div>
+          </div>
+          <div class="menu-card stagger">
+            <div class="menu-card-img"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=500" alt="Filtrado"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-head">
+                <h3>Café Filtrado</h3>
+                <span class="price">$1.500</span>
+              </div>
+              <p>Pour-over o Aeropress, granos de temporada seleccionados por nuestro barista.</p>
+              <span class="tag tag-chef">Recomendado</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== GALERÍA ===================== -->
+  <section id="galeria" class="section section-cream">
+    <div class="container">
+      <div class="eyebrow">— Momentos —</div>
+      <h2 class="heading reveal">Nuestra<br><em>atmósfera</em></h2>
+    </div>
+    <div class="gallery-mosaic reveal">
+      <div class="gal-a">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800" alt="Salón principal">
+        <div class="gal-caption">Salón principal</div>
+      </div>
+      <div class="gal-b">
+        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600" alt="Barra de café">
+        <div class="gal-caption">Barra de café</div>
+      </div>
+      <div class="gal-c">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700" alt="Mesa para dos">
+        <div class="gal-caption">Mesa para dos</div>
+      </div>
+      <div class="gal-d">
+        <img src="https://images.unsplash.com/photo-1481931098730-318b6f776db0?w=600" alt="Desayuno">
+        <div class="gal-caption">Desayuno</div>
+      </div>
+      <div class="gal-e">
+        <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600" alt="Cocina">
+        <div class="gal-caption">Cocina de autor</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RESEÑAS ===================== -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="eyebrow eyebrow-light">— Lo que dicen —</div>
+      <h2 class="heading heading-light reveal">Voces de<br><em>nuestros clientes</em></h2>
+      <div class="reviews-grid">
+        <div class="review-card stagger">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"El mejor restaurante de Corrientes, sin dudas. El surubí al rescoldo es una obra de arte. Ambiente íntimo y servicio impecable."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">MG</div>
+            <div>
+              <div class="reviewer-name">María González</div>
+              <div class="reviewer-date">Marzo 2025</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card stagger">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Vine por el café y me quedé por la comida. El latte art es increíble y las tostadas de la Orilla son adictivas. Vuelvo cada semana."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">LP</div>
+            <div>
+              <div class="reviewer-name">Lucas Pereyra</div>
+              <div class="reviewer-date">Enero 2025</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card stagger">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Un lugar que celebra lo nuestro. Cada plato tiene identidad correntina. La terraza al río al atardecer es mágica. Totalmente recomendable."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">SR</div>
+            <div>
+              <div class="reviewer-name">Sofía Ramírez</div>
+              <div class="reviewer-date">Febrero 2025</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HORARIOS ===================== -->
+  <section id="horarios" class="section section-cream">
+    <div class="container">
+      <div class="horarios-layout">
+
+        <div class="reveal-left">
+          <div class="eyebrow">— Cuándo visitarnos —</div>
+          <h2 class="heading">Horarios<br><em>de atención</em></h2>
+          <p class="horarios-desc">Abrimos todos los días del año. En fechas especiales consultá disponibilidad por WhatsApp.</p>
+
+          <div class="horario-table">
+            <div class="ht-row">
+              <span class="ht-dia">Lunes a Viernes</span>
+              <span class="ht-hora">08:00 — 00:00 hs</span>
+            </div>
+            <div class="ht-row">
+              <span class="ht-dia">Sábados</span>
+              <span class="ht-hora">09:00 — 01:00 hs</span>
+            </div>
+            <div class="ht-row">
+              <span class="ht-dia">Domingos</span>
+              <span class="ht-hora">10:00 — 23:00 hs</span>
+            </div>
+            <div class="ht-row ht-highlight">
+              <span class="ht-dia">Feriados</span>
+              <span class="ht-hora">10:00 — 23:00 hs</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="horarios-card reveal-right">
+          <div class="hcard-leaf" aria-hidden="true">🌿</div>
+          <div class="hcard-content">
+            <h3>Reservas y eventos</h3>
+            <p>Organizamos almuerzos de trabajo, cenas románticas y eventos privados. Consultanos sin cargo.</p>
+            <div class="hcard-btns">
+              <a href="https://wa.me/5493794282762" class="btn btn-green" target="_blank">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.524 3.659 1.435 5.163L2 22l4.837-1.435A9.961 9.961 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.966 7.966 0 0 1-4.076-1.112l-.292-.173-3.024.897.897-3.024-.173-.292A7.966 7.966 0 0 1 4 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z"/></svg>
+                WhatsApp
+              </a>
+              <a href="https://instagram.com" class="btn btn-outline-dark" target="_blank">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                Instagram
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RESERVAS ===================== -->
+  <section id="reservas" class="section section-dark">
+    <div class="container">
+      <div class="reservas-layout">
+
+        <div class="reveal-left">
+          <div class="eyebrow eyebrow-light">— Asegurá tu lugar —</div>
+          <h2 class="heading heading-light">Reservar<br><em>tu mesa</em></h2>
+          <p style="color:rgba(245,240,230,0.6);margin-top:16px;line-height:1.8">Completá el formulario y te confirmamos la reserva por WhatsApp en menos de 2 horas.</p>
+          <div class="reserva-info">
+            <div class="ri-item">📍 San Juan 1452, Corrientes</div>
+            <div class="ri-item">📞 +54 9 379 555-0000</div>
+            <div class="ri-item">✉️ reservas@laorilla.com.ar</div>
+          </div>
+        </div>
+
+        <div class="reserva-form reveal-right">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" placeholder="Tu nombre completo">
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" placeholder="+54 9 ...">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fecha">Fecha</label>
+              <input type="date" id="fecha">
+            </div>
+            <div class="form-group">
+              <label for="hora">Horario</label>
+              <select id="hora">
+                <option value="">Elegir horario</option>
+                <option>12:00 hs — Almuerzo</option>
+                <option>13:00 hs — Almuerzo</option>
+                <option>14:00 hs — Almuerzo</option>
+                <option>19:00 hs — Cena</option>
+                <option>20:00 hs — Cena</option>
+                <option>21:00 hs — Cena</option>
+                <option>22:00 hs — Cena</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="comensales">Comensales</label>
+              <select id="comensales">
+                <option value="">¿Cuántos son?</option>
+                <option>1 persona</option>
+                <option>2 personas</option>
+                <option>3–4 personas</option>
+                <option>5–6 personas</option>
+                <option>7–10 personas</option>
+                <option>+10 personas (evento)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="ocasion">Ocasión</label>
+              <select id="ocasion">
+                <option value="">Tipo de visita</option>
+                <option>Visita casual</option>
+                <option>Cumpleaños</option>
+                <option>Aniversario</option>
+                <option>Reunión de trabajo</option>
+                <option>Evento privado</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="notas">Notas (opcional)</label>
+            <textarea id="notas" rows="3" placeholder="Alergias, requerimientos especiales, etc."></textarea>
+          </div>
+          <button class="btn btn-green btn-full" onclick="enviarReserva()">Confirmar reserva por WhatsApp</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACTO / UBICACIÓN ===================== -->
+  <section id="contacto" class="section section-cream">
+    <div class="container">
+      <div class="contacto-layout">
+
+        <div class="reveal-left">
+          <div class="eyebrow">— Encontranos —</div>
+          <h2 class="heading">Dónde<br><em>estamos</em></h2>
+          <p>A metros del Paraná, en el corazón histórico de Corrientes. Fácil acceso y estacionamiento cercano.</p>
+          <div class="contacto-datos">
+            <div class="cd-item">
+              <span class="cd-icon">📍</span>
+              <div>
+                <div class="cd-label">Dirección</div>
+                <div class="cd-val">San Juan 1452, Corrientes Capital</div>
+              </div>
+            </div>
+            <div class="cd-item">
+              <span class="cd-icon">🕐</span>
+              <div>
+                <div class="cd-label">Horario</div>
+                <div class="cd-val">Todos los días 08:00–00:00 hs</div>
+              </div>
+            </div>
+            <div class="cd-item">
+              <span class="cd-icon">📞</span>
+              <div>
+                <div class="cd-label">Teléfono</div>
+                <div class="cd-val">+54 9 379 555-0000</div>
+              </div>
+            </div>
+          </div>
+          <div class="social-row">
+            <a href="https://wa.me/5493794282762" class="btn btn-green" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.524 3.659 1.435 5.163L2 22l4.837-1.435A9.961 9.961 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.966 7.966 0 0 1-4.076-1.112l-.292-.173-3.024.897.897-3.024-.173-.292A7.966 7.966 0 0 1 4 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z"/></svg>
+              WhatsApp
+            </a>
+            <a href="https://instagram.com" class="btn btn-ig" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              Instagram
+            </a>
+          </div>
+        </div>
+
+        <div class="mapa reveal-right">
+          <iframe
+            src="https://www.google.com/maps?q=Corrientes,+Argentina&output=embed"
+            allowfullscreen loading="lazy" title="Ubicación La Orilla">
+          </iframe>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-logo">La Orilla</div>
+            <p>Restaurante &amp; Café en el corazón de Corrientes. Cocina de autor con raíces del litoral argentino.</p>
+            <div class="footer-social">
+              <a href="https://wa.me/5493794282762" target="_blank" aria-label="WhatsApp">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.524 3.659 1.435 5.163L2 22l4.837-1.435A9.961 9.961 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.966 7.966 0 0 1-4.076-1.112l-.292-.173-3.024.897.897-3.024-.173-.292A7.966 7.966 0 0 1 4 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z"/></svg>
+              </a>
+              <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Navegación</h4>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#menu">Menú</a>
+            <a href="#galeria">Galería</a>
+            <a href="#horarios">Horarios</a>
+            <a href="#reservas">Reservas</a>
+          </div>
+          <div class="footer-col">
+            <h4>Contacto</h4>
+            <a href="https://wa.me/5493794282762" target="_blank">WhatsApp</a>
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+            <a href="mailto:reservas@laorilla.com.ar">Email</a>
+            <a href="#contacto">Cómo llegar</a>
+          </div>
+          <div class="footer-col">
+            <h4>Horarios</h4>
+            <span>Lun–Vie 08:00–00:00</span>
+            <span>Sábados 09:00–01:00</span>
+            <span>Domingos 10:00–23:00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© 2026 La Orilla — Corrientes, Argentina</p>
+        <p class="footer-tagline">Con sabor a litoral</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botones flotantes -->
+  <div class="float-btns">
+    <a href="https://wa.me/5493794282762" class="float-btn float-wa" target="_blank" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.524 3.659 1.435 5.163L2 22l4.837-1.435A9.961 9.961 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.966 7.966 0 0 1-4.076-1.112l-.292-.173-3.024.897.897-3.024-.173-.292A7.966 7.966 0 0 1 4 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z"/></svg>
+    </a>
+    <a href="https://instagram.com" class="float-btn float-ig" target="_blank" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    </a>
+  </div>
+
+  <script src="restaurante-main.js"></script>
+</body>
+</html>
